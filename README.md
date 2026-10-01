@@ -56,6 +56,14 @@ const SHEET_WEB_APP_URL = 'ضع رابط Web App هنا';
 - Student email اختياري، وبقية البيانات إجبارية.
 - إضافة بيانات الإخوة تظهر فقط بعد اختيار Yes.
 - حفظ المسودة وآخر إرسال داخل `localStorage`.
-- تحميل البيانات بصيغة JSON أو CSV.
+- حفظ البيانات محليًا وإرسالها إلى Google Sheet بعد تفعيل Web App.
 
 > لا تضع مفاتيح Google أو بيانات الدخول داخل ملفات HTML أو JavaScript. استخدم رابط Web App فقط بعد نشر Apps Script.
+
+### مهم بعد تحديث منع التكرار
+
+استبدل محتوى `Code.gs` في Google Apps Script، ثم نفّذ:
+
+`Deploy → Manage deployments → Edit → New version → Deploy`
+
+تأكد أن رابط الفورم في `app.js` هو رابط النشر الذي ينتهي بـ `/exec`، وليس `/dev`. بدون نشر النسخة الجديدة سيستمر الرابط القديم في قبول التكرار.

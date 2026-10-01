@@ -100,21 +100,6 @@ function validate() {
   return true;
 }
 
-function download(filename, content, type) {
-  const blob = new Blob([content], { type });
-  const url = URL.createObjectURL(blob);
-  const anchor = document.createElement('a');
-  anchor.href = url; anchor.download = filename; anchor.click();
-  URL.revokeObjectURL(url);
-}
-
-function csvCell(value) { return `"${String(value ?? '').replaceAll('"', '""')}"`; }
-function toCsv(data) {
-  const rows = [['Field', 'Value'], ...Object.entries(data).filter(([key]) => key !== 'siblings').map(([key, value]) => [key, typeof value === 'boolean' ? (value ? 'Yes' : 'No') : value])];
-  data.siblings.forEach((sibling, index) => Object.entries(sibling).forEach(([key, value]) => rows.push([`sibling_${index + 1}_${key}`, value])));
-  return '\ufeff' + rows.map(row => row.map(csvCell).join(',')).join('\n');
-}
-
 function saveLocal(data) {
   localStorage.setItem('via-last-submission', JSON.stringify(data, null, 2));
   localStorage.removeItem(draftKey);
@@ -186,8 +171,6 @@ document.querySelector('#saveDraft').addEventListener('click', () => {
   message.style.display = 'block';
 });
 
-document.querySelector('#downloadJson').addEventListener('click', () => download('student-information.json', JSON.stringify(lastPayload, null, 2), 'application/json;charset=utf-8'));
-document.querySelector('#downloadCsv').addEventListener('click', () => download('student-information.csv', toCsv(lastPayload), 'text/csv;charset=utf-8'));
 document.querySelector('#backToForm').addEventListener('click', () => { successPanel.hidden = true; form.hidden = false; });
 form.addEventListener('reset', () => { siblingsList.innerHTML = ''; siblingsArea.hidden = true; clearError(); });
 restoreDraft();
