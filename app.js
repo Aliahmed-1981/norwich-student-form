@@ -5,6 +5,7 @@ const addSiblingButton = document.querySelector('#addSibling');
 const message = document.querySelector('#formMessage');
 const successPanel = document.querySelector('#successPanel');
 const draftKey = 'via-student-intake-draft';
+const submittedKeysKey = 'via-submitted-student-keys';
 // Paste the deployed Google Apps Script Web App URL here to enable online submission.
 const SHEET_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwty-HIOAT0QsQhU-GxbyPmULdB5buzwj-1z_mlR_sCAQ_OROrJSqCh9wbGEZ-G390O/exec';
 let lastPayload = null;
@@ -45,6 +46,22 @@ function collectData() {
   data.siblings = data.hasSiblings ? collectSiblings() : [];
   data.submittedAt = new Date().toISOString();
   return data;
+}
+
+function duplicateKey(data) {
+  return [data.firstName, data.middleName, data.lastName, data.birthDate]
+    .map(value => String(value || '').trim().toLowerCase()).join('|');
+}
+
+function wasSubmittedBefore(data) {
+  const keys = JSON.parse(localStorage.getItem(submittedKeysKey) || '[]');
+  return keys.includes(duplicateKey(data));
+}
+
+function rememberSubmission(data) {
+  const keys = JSON.parse(localStorage.getItem(submittedKeysKey) || '[]');
+  const key = duplicateKey(data);
+  if (!keys.includes(key)) localStorage.setItem(submittedKeysKey, JSON.stringify([...keys, key]));
 }
 
 function showError(text) {
@@ -150,7 +167,12 @@ form.addEventListener('submit', event => {
   event.preventDefault();
   if (!validate()) return;
   lastPayload = collectData();
+  if (wasSubmittedBefore(lastPayload)) {
+    showError('This student information has already been submitted from this browser.');
+    return;
+  }
   saveLocal(lastPayload);
+  rememberSubmission(lastPayload);
   sendToGoogleSheet(lastPayload);
   form.hidden = true;
   successPanel.hidden = false;
