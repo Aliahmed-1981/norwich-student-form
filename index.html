@@ -1,185 +1,74 @@
-
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Student Information Update | Norwich</title>
-  <style>
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      padding: 24px 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #f1f6fa;
-      font-family: Arial, Tahoma, sans-serif;
-      color: #243447;
-    }
-
-    .card {
-      width: 100%;
-      max-width: 680px;
-      padding: 38px 32px;
-      background: white;
-      border-radius: 18px;
-      box-shadow: 0 8px 30px rgba(0,0,0,.10);
-      text-align: center;
-    }
-
-    .icon {
-      width: 68px;
-      height: 68px;
-      margin: 0 auto 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background: #eaf4f8;
-      color: #176b87;
-      font-size: 32px;
-    }
-
-    h1 {
-      margin: 0 0 16px;
-      color: #123b5d;
-      font-size: 28px;
-    }
-
-    .intro {
-      margin: 0 0 26px;
-      font-size: 17px;
-      line-height: 1.7;
-    }
-
-    .notice {
-      margin: 16px 0;
-      padding: 20px;
-      border: 1px solid #e2e8f0;
-      border-left: 4px solid #176b87;
-      border-radius: 12px;
-      background: #f7fafc;
-      text-align: left;
-    }
-
-    .notice.existing {
-      border-left-color: #718096;
-    }
-
-    h2 {
-      margin: 0 0 10px;
-      color: #123b5d;
-      font-size: 18px;
-    }
-
-    .notice p {
-      margin: 0;
-      font-size: 15px;
-      line-height: 1.7;
-    }
-
-    .footer {
-      margin-top: 26px;
-      padding-top: 20px;
-      border-top: 1px solid #e5e7eb;
-      color: #718096;
-      font-size: 13px;
-      line-height: 1.7;
-    }
-
-    .via-credit {
-      margin-top: 20px;
-      padding-top: 18px;
-      border-top: 1px solid #e5e7eb;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-    }
-
-    .via-logo {
-      width: 48px;
-      height: 48px;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #123b5d, #16839d);
-      color: white;
-      font-size: 20px;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-
-    .via-text {
-      text-align: left;
-      line-height: 1.5;
-    }
-
-    .via-text strong {
-      display: block;
-      color: #123b5d;
-      font-size: 14px;
-    }
-
-    .via-text span {
-      display: block;
-      color: #66788c;
-      font-size: 12px;
-    }
-
-    @media (max-width: 480px) {
-      .card { padding: 30px 20px; }
-      h1 { font-size: 24px; }
-      .intro { font-size: 16px; }
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Information Form | Norwich</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="logo-overrides.css" />
+  <link rel="stylesheet" href="english-overrides.css" />
+  <link rel="stylesheet" href="logo-position-overrides.css" />
+  <link rel="stylesheet" href="family-code-note.css" />
 </head>
-
 <body>
-  <main class="card">
-    <div class="icon" aria-hidden="true">✓</div>
-
-    <h1>Student Information Update</h1>
-
-    <p class="intro">
-      The student information update form is currently closed.
-    </p>
-
-    <section class="notice">
-      <h2>New Students</h2>
-      <p>
-        If this is your child's first year at Norwich International College,
-        please contact the school directly to complete the required student
-        registration and information.
-      </p>
-    </section>
-
-    <section class="notice existing">
-      <h2>Students Already Registered on Skolera</h2>
-      <p>
-        If your child was already registered on Skolera in the previous
-        school year, there is no need to register the student again
-        or complete this form.
-      </p>
-    </section>
-
-    <footer class="footer">
-      Thank you for your cooperation.<br>
-      Norwich International College
-
-      <div class="via-credit">
-        <div class="via-logo">VIA</div>
-        <div class="via-text">
-          <strong>Powered by VIA</strong>
-          <span>School Operations Management</span>
-        </div>
+  <main class="page-shell">
+    <header class="site-header">
+      <div class="brand-lockup top-logo-row" aria-label="Norwich International College and Skolera">
+        <img class="norwich-logo" src="norwich.png" alt="Norwich International College logo" />
+        <div class="brand-divider"></div>
+        <img class="skolera-top-logo" src="skolera.png" alt="Skolera logo" />
       </div>
-    </footer>
+      <div class="header-copy">
+        <span class="eyebrow">Student Information Update</span>
+        <h1>Student Information Form</h1>
+        <p>Please enter all information accurately. Fields marked with <b>*</b> are required.</p>
+      </div>
+    </header>
+
+    <form id="studentForm" novalidate>
+      <section class="form-section">
+        <div class="section-heading"><span class="section-number">01</span><div><h2>Student Information</h2><p>Student Details</p></div></div>
+        <div class="form-grid three-columns">
+          <label class="field"><span>First name <b>*</b></span><input name="firstName" type="text" required autocomplete="given-name" /></label>
+          <label class="field"><span>Student middle name <b>*</b></span><input name="middleName" type="text" required /></label>
+          <label class="field"><span>Last name <b>*</b></span><input name="lastName" type="text" required autocomplete="family-name" /></label>
+          <label class="field"><span>Arabic name <b>*</b></span><input name="arabicName" type="text" required /></label>
+          <label class="field"><span>Gender <b>*</b></span><select name="gender" required><option value="">Select gender</option><option>Male</option><option>Female</option></select></label>
+          <label class="field"><span>Birth date <b>*</b></span><input name="birthDate" type="date" required /></label>
+          <label class="field"><span>Religion <b>*</b></span><select name="religion" required><option value="">Select religion</option><option>Muslim</option><option>Christian</option></select></label>
+          <label class="field"><span>Nationality <b>*</b></span><input name="nationality" type="text" required /></label>
+          <label class="field"><span>Student email <small>Optional</small></span><input name="studentEmail" type="email" autocomplete="email" /></label>
+          <label class="field"><span>Class / Grade <b>*</b></span><select name="classGrade" required><option value="">Select class / grade</option><option>PreK</option><option>KG1A</option><option>KG2A</option><option>G1A</option><option>G2A</option><option>G3A</option><option>G4A</option><option>G5A</option><option>G6A</option><option>G7A</option><option>G7B</option><option>G8A</option><option>G8B</option><option>G9A</option><option>G10A</option><option>G10B</option><option>G11A</option><option>G11B</option><option>G12A</option><option>G12B</option><option>G12C</option></select></label>
+          <label class="field"><span>Second language <b>*</b></span><select name="secondLanguage" required><option value="">Select language</option><option>German</option><option>French</option></select></label>
+          <label class="field"><span>Family Code <small>Optional</small></span><input name="familyCode" type="text" /><small class="field-note">Skolera family code, if the student has siblings already registered on Skolera.</small></label>
+        </div>
+      </section>
+
+      <section class="form-section">
+        <div class="section-heading"><span class="section-number">02</span><div><h2>Parent / Guardian Information</h2><p>Father and Mother Details</p></div></div>
+        <div class="parent-card-grid">
+          <div class="parent-card"><div class="parent-title"><span>Father</span><small>Parent 1</small></div><label class="field"><span>Full name <b>*</b></span><input name="fatherName" type="text" required /></label><label class="field"><span>Email address <b>*</b></span><input name="fatherEmail" type="email" required /></label><label class="field"><span>Phone number <b>*</b></span><input name="fatherPhone" type="tel" required /></label></div>
+          <div class="parent-card"><div class="parent-title"><span>Mother</span><small>Optional</small></div><label class="field"><span>Full name <small>Optional</small></span><input name="motherName" type="text" /></label><label class="field"><span>Email address <small>Optional</small></span><input name="motherEmail" type="email" /></label><label class="field"><span>Phone number <small>Optional</small></span><input name="motherPhone" type="tel" /></label></div>
+        </div>
+      </section>
+
+      <section class="form-section">
+        <div class="section-heading"><span class="section-number">03</span><div><h2>Sibling Information</h2><p>Sibling Details</p></div></div>
+        <fieldset class="choice-fieldset"><legend>Does the student have siblings? <b>*</b></legend><div class="choice-row"><label class="choice"><input type="radio" name="hasSiblings" value="No" checked /><span>No</span></label><label class="choice"><input type="radio" name="hasSiblings" value="Yes" /><span>Yes</span></label></div></fieldset>
+        <div id="siblingsArea" class="siblings-area" hidden><div class="siblings-toolbar"><div><h3>Sibling details</h3><p>Add each sibling. All sibling fields are required.</p></div><button type="button" class="secondary-button" id="addSibling">+ Add sibling</button></div><div id="siblingsList"></div></div>
+      </section>
+
+      <section class="form-section privacy-note"><strong>Important</strong><p>This local version stores information in this browser only when you click “Save Information”. No data is sent to the internet.</p></section>
+      <div id="formMessage" class="form-message" role="status" aria-live="polite"></div>
+      <div class="actions"><button type="submit" class="primary-button">Save Information</button><button type="button" class="outline-button" id="saveDraft">Save Draft</button><button type="reset" class="text-button">Clear Form</button></div>
+    </form>
+
+    <section id="successPanel" class="success-panel" hidden><div class="success-icon">✓</div><h2>Information Saved Successfully</h2><p>Your information has been submitted successfully.</p><div class="success-actions"><button id="backToForm" class="text-button">Back to Form</button></div></section>
+
+    <footer class="site-footer"><div class="footer-brand"><img class="via-image footer-via" src="via-logo.png" alt="VIA logo" /><div><strong>Powered by VIA</strong><span>School Operations Management</span></div></div><p>Norwich International College • Student Information Update</p></footer>
   </main>
+  <script src="app.js"></script>
 </body>
 </html>
